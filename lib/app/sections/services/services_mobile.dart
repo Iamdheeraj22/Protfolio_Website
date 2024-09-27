@@ -16,23 +16,30 @@ class ServiceMobile extends StatelessWidget {
           child: CustomSectionSubHeading(text: servicesSubHeading),
         ),
         Space.y(5.w)!,
-        CarouselSlider.builder(
-          itemCount: servicesUtils.length,
-          itemBuilder: (BuildContext context, int itemIndex, int i) => Padding(
-            padding: EdgeInsets.symmetric(vertical: 0.5.w),
-            child: _ServiceCard(service: servicesUtils[i]),
-          ),
-          options: CarouselOptions(
-            viewportFraction: 0.6,
-            height: 300,
-            autoPlay: true,
-            autoPlayInterval: const Duration(seconds: 5),
-            enlargeCenterPage: true,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            autoPlayAnimationDuration: const Duration(milliseconds: 800),
-            enableInfiniteScroll: false,
-          ),
-        )
+        //Create a CarouselView for the services
+        // Container(
+        //   margin: EdgeInsets.symmetric(horizontal: 10.w),
+        //   alignment: Alignment.center,
+        //   height: height * 0.35,
+        //   child: CarouselView(
+        //     padding: EdgeInsets.only(right: 5.w),
+        //     controller: CarouselController(),
+        //     itemExtent: 330,
+        //     children: List<Widget>.generate(
+        //       servicesUtils.length,
+        //       (index) => Padding(
+        //         padding: EdgeInsets.symmetric(vertical: 0.5.w),0
+        //         child: _ServiceCard(service: servicesUtils[index]),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        Wrap(
+            children: servicesUtils
+                .map(
+                  (e) => _ServiceCard(service: e),
+                )
+                .toList())
       ],
     );
   }
