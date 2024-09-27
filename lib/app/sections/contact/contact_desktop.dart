@@ -38,55 +38,57 @@ class ContactDesktop extends StatelessWidget {
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          contactHeadding,
-                          style: TextStyle(
-                            height: 1.2,
-                            fontSize: 8.sp,
-                            fontWeight: FontWeight.w600,
+                FittedBox(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            contactHeadding,
+                            style: TextStyle(
+                              height: 1.2,
+                              fontSize: 8.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
 
-                        Space.y(1.w)!,
-                        Text(
-                          contactSubHeadding,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w100,
+                          Space.y(1.w)!,
+                          Text(
+                            contactSubHeadding,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w100,
+                            ),
                           ),
-                        ),
-                        Space.y(2.w)!,
-                        // SizedBox(height: AppDimensions.space(3)),
-                      ],
-                    ),
-                    InkWell(
-                      onTap: () => openURL(whatsapp),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 20),
-                        decoration: BoxDecoration(
-                            gradient: buttonGradi,
-                            // border: Border.all(
-                            //     width: 2.0, color: theme.primaryColor),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: const Text(
-                          'Get Started',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: textColor,
+                          Space.y(2.w)!,
+                          // SizedBox(height: AppDimensions.space(3)),
+                        ],
+                      ),
+                      InkWell(
+                        onTap: () => openURL(whatsapp),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 20),
+                          decoration: BoxDecoration(
+                              gradient: buttonGradi,
+                              // border: Border.all(
+                              //     width: 2.0, color: theme.primaryColor),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Text(
+                            'Get Started',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: textColor,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Container(color: Colors.white.withOpacity(0.2), height: 1),
                 Space.y(2.w)!,
