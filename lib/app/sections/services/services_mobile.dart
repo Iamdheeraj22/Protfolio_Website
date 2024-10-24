@@ -5,8 +5,6 @@ class ServiceMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-
     return Column(
       children: [
         const CustomSectionHeading(text: '\nWhat I can do?'),
@@ -16,25 +14,11 @@ class ServiceMobile extends StatelessWidget {
           child: CustomSectionSubHeading(text: servicesSubHeading),
         ),
         Space.y(5.w)!,
-        //Create a CarouselView for the services
-        // Container(
-        //   margin: EdgeInsets.symmetric(horizontal: 10.w),
-        //   alignment: Alignment.center,
-        //   height: height * 0.35,
-        //   child: CarouselView(
-        //     padding: EdgeInsets.only(right: 5.w),
-        //     controller: CarouselController(),
-        //     itemExtent: 330,
-        //     children: List<Widget>.generate(
-        //       servicesUtils.length,
-        //       (index) => Padding(
-        //         padding: EdgeInsets.symmetric(vertical: 0.5.w),0
-        //         child: _ServiceCard(service: servicesUtils[index]),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        Wrap(
+        OverflowBar(
+            alignment: MainAxisAlignment.center,
+            spacing: 2.w,
+            overflowSpacing: 2.w,
+            overflowAlignment: OverflowBarAlignment.center,
             children: servicesUtils
                 .map(
                   (e) => _ServiceCard(service: e),

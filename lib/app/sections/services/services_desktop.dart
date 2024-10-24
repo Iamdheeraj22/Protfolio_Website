@@ -10,23 +10,21 @@ class ServiceDesktop extends StatefulWidget {
 class ServiceDesktopState extends State<ServiceDesktop> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: width / 8)
-          .copyWith(bottom: height * 0.15),
+      padding: EdgeInsets.symmetric(horizontal: width / 8),
       child: Column(
         children: [
           const CustomSectionHeading(text: '\nWhat I can do?'),
           Space.y(1.w)!,
           CustomSectionSubHeading(text: servicesSubHeading),
           Space.y(2.w)!,
-          Wrap(
-            spacing: width * 0.03,
-            runSpacing: height * 0.05,
-            alignment: WrapAlignment.start,
-            crossAxisAlignment: WrapCrossAlignment.start,
+          OverflowBar(
+            alignment: MainAxisAlignment.center,
+            spacing: 2.w,
+            overflowSpacing: 2.w,
+            overflowAlignment: OverflowBarAlignment.center,
             children: servicesUtils
                 .asMap()
                 .entries

@@ -38,7 +38,7 @@ class _ServiceCardState extends State<_ServiceCard> {
             maxWidth: 400,
           ),
           // height: AppDimensions.normalize(100),
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           decoration: BoxDecoration(
             gradient: isHover ? pinkpurple : theme.serviceCard,
             borderRadius: BorderRadius.circular(15),
@@ -49,9 +49,10 @@ class _ServiceCardState extends State<_ServiceCard> {
             children: [
               SvgPicture.asset(
                 widget.service.icon,
-                height: 60,
+                height: 50,
+                width: 50,
               ),
-              Space.y(3.w)!,
+              Space.y(2.w)!,
               FittedBox(
                 child: Text(
                   widget.service.name,
@@ -64,61 +65,38 @@ class _ServiceCardState extends State<_ServiceCard> {
                 ),
               ),
               Space.y(1.w)!,
-              Expanded(
-                child: Text(
-                  widget.service.description,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color:
-                        isHover ? whiteColor.withOpacity(0.8) : theme.textColor,
-                    fontWeight: FontWeight.w200,
-                    fontSize: 16,
-                  ),
+              Text(
+                widget.service.description,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color:
+                      isHover ? whiteColor.withOpacity(0.8) : theme.textColor,
+                  fontWeight: FontWeight.w200,
+                  fontSize: 13,
                 ),
               ),
               Space.y(2.w)!,
-              if (Responsive.isDesktop(context))
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: widget.service.tool
-                        .map((e) => Row(
-                              children: [
-                                const Text('🛠   '),
-                                Text(
-                                  e,
-                                  style: TextStyle(
-                                    color:
-                                        isHover ? whiteColor : theme.textColor,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ))
-                        .toList()),
-              if (Responsive.isMobile(context) || Responsive.isTablet(context))
-                Expanded(
-                  child: ListView(
-                      padding: EdgeInsets.zero,
-                      // shrinkWrap: true,
-                      children: widget.service.tool
-                          .map((e) => Row(
-                                children: [
-                                  Text('🛠   ',
-                                      style: TextStyle(
-                                        color: isHover
-                                            ? whiteColor
-                                            : theme.textColor,
-                                      )),
-                                  Text(e,
-                                      style: TextStyle(
-                                        color: isHover
-                                            ? whiteColor
-                                            : theme.textColor,
-                                      )),
-                                ],
-                              ))
-                          .toList()),
-                )
+              OverflowBar(
+                alignment: MainAxisAlignment.start,
+                spacing: 1.w,
+                overflowAlignment: OverflowBarAlignment.center,
+                children: widget.service.tool
+                    .map(
+                      (e) => Row(
+                        children: [
+                          const Text('🛠   '),
+                          Text(
+                            e,
+                            style: TextStyle(
+                              color: isHover ? whiteColor : theme.textColor,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                    .toList(),
+              ),
             ],
           ),
         ),
