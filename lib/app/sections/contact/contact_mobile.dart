@@ -51,10 +51,11 @@ class ContactMobileTab extends StatelessWidget {
                       icon: Image.network(
                         e.value.icon,
                         color: theme.textColor,
+                        height: 35,
+                        width: 40,
                       ),
                       onPressed: () => openURL(e.value.url),
                       highlightColor: Colors.white54,
-                      iconSize: 21,
                     ))
                 .toList()),
         Space.y(5.w)!,

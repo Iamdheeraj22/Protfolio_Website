@@ -9,17 +9,19 @@ class ContactUtils {
 
 List<ContactUtils> contactUtils = [
   ContactUtils(
+      url: email,
+      icon:
+          "https://img.icons8.com/?size=100&id=85500&format=png&color=000000"),
+  ContactUtils(
       url: gitHub,
       icon: "https://img.icons8.com/ios-glyphs/60/000000/github.png"),
-  ContactUtils(
-      url: whatsapp,
-      icon: "https://img.icons8.com/material-outlined/48/000000/whatsapp.png"),
   ContactUtils(
       url: linkedin,
       icon: "https://img.icons8.com/ios-filled/50/000000/linkedin.png"),
   ContactUtils(
+      url: whatsapp,
+      icon: "https://img.icons8.com/material-outlined/48/000000/whatsapp.png"),
+  ContactUtils(
       url: instagram,
       icon: "https://img.icons8.com/glyph-neue/64/000000/instagram-new.png"),
 ];
-
-// 
