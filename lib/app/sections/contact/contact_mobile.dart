@@ -18,7 +18,7 @@ class ContactMobileTab extends StatelessWidget {
       children: [
         Space.y(7.w)!,
         CustomSectionHeading(text: contactHeadding),
-        Space.y(3.w)!,
+        Space.y(1.w)!,
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: CustomSectionSubHeading(text: contactSubHeadding),

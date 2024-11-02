@@ -15,7 +15,9 @@ class _NavbarDesktopState extends State<_NavbarDesktop> {
     var theme = Theme.of(context);
     return BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: size.width / 8, vertical: 10),
+        // padding: EdgeInsets.symmetric(horizontal: size.width / 8, vertical: 10),
+        padding: EdgeInsets.only(
+            left: size.width / 10, right: 40, top: 10, bottom: 10),
         color: theme.navBarColor,
         child: Row(
           children: [
