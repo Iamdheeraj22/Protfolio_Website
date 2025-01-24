@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysite/app/sections/projects/projects.dart';
 import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/configs/configs.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 class NavBarActionButton extends StatefulWidget {
   final String label;
   final int index;
+
   const NavBarActionButton({
     Key? key,
     required this.label,
@@ -20,6 +22,7 @@ class NavBarActionButton extends StatefulWidget {
 
 class _NavBarActionButtonState extends State<NavBarActionButton> {
   bool isHover = false;
+
   @override
   Widget build(BuildContext context) {
     final scrollProvider = Provider.of<ScrollProvider>(context);
@@ -40,6 +43,11 @@ class _NavBarActionButtonState extends State<NavBarActionButton> {
             setState(() => isHover = value);
           },
           onTap: () {
+            if (widget.index == 2) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const Projects()));
+              return;
+            }
             scrollProvider.jumpTo(widget.index);
           },
           child: Padding(

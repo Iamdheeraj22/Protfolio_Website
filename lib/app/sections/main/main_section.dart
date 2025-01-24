@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mysite/app/sections/projects/projects.dart';
 import 'package:mysite/app/utils/navbar_utils.dart';
 import 'package:mysite/app/utils/utils.dart';
 import 'package:mysite/app/widgets/arrow_on_top.dart';
@@ -23,7 +24,9 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:sizer/sizer.dart';
 
 part 'widgets/_body.dart';
+
 part 'widgets/_mobile_drawer.dart';
+
 part 'widgets/_navbar_desktop.dart';
 
 class MainPage extends StatelessWidget {
