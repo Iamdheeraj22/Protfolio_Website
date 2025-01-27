@@ -19,11 +19,20 @@ jobs:
           channel: 'stable'
           cache: true  # Use the stable channel for the latest stable version
 
+      - name: Clean dependencies
+        run: flutter clean
+
+      - name: Install dependencies
+        run: flutter pub get
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build the project
         run: flutter build web
+
+      #      - name: Deploy Web
+      #        run: firebase deploy --only hosting
 
       - run: npm ci && npm run build
 
@@ -32,4 +41,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_83984 }}
           channelId: live
+          tag: v1.0.0
           projectId: portfolio-83984
