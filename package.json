@@ -1,0 +1,23 @@
+{
+  "name": "portfolio_website",
+  "version": "1.0.0",
+  "description": "- [x] This portfolio website has both dark and light.",
+  "homepage": "https://github.com/Iamdheeraj22/Protfolio_Website#readme",
+  "bugs": {
+    "url": "https://github.com/Iamdheeraj22/Protfolio_Website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iamdheeraj22/Protfolio_Website.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
