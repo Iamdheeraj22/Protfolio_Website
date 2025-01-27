@@ -14,7 +14,7 @@ import 'package:universal_html/html.dart' as html;
 import 'widgets/animation_text.dart';
 
 class HomeMobile extends StatelessWidget {
-  const HomeMobile({Key? key}) : super(key: key);
+  const HomeMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class HomeMobile extends StatelessWidget {
                 style: AppText.h3!.copyWith(fontSize: isFontSize(context, 16)),
               ),
               // Space.x!,
-              Image.asset(StaticImage.hi, height: 10.sp),
+              Image.asset(StaticImage.hi, height: 40),
             ],
           ),
           // Space.y(1.w)!,
