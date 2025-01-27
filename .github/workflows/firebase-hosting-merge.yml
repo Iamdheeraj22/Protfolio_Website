@@ -36,10 +36,12 @@ jobs:
 
       - run: npm ci && npm run build
 
+      - name: Set version
+        run: echo "v1.0.0" > version.txt
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_83984 }}
           channelId: live
-          tag: v1.0.0
           projectId: portfolio-83984
