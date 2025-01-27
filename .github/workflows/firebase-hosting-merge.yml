@@ -15,14 +15,18 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'  # Use the stable channel for the latest stable version
-  
+          flutter-version: '3.27.0'
+          channel: 'stable'
+          cache: true  # Use the stable channel for the latest stable version
+
       - name: Install dependencies
         run: npm ci
-  
+
       - name: Build the project
         run: flutter build web
+
       - run: npm ci && npm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
