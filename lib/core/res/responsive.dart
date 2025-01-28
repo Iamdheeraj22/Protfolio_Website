@@ -37,15 +37,15 @@ class Responsive extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     if (size.width > 1400 && extraLargeScreen != null) {
-      return extraLargeScreen!;
+      return SafeArea(child: extraLargeScreen!);
     } else if (size.width >= 1080) {
-      return desktop;
+      return SafeArea(child: desktop);
     } else if (size.width >= 700) {
-      return tablet;
+      return SafeArea(child: tablet);
     } else if (size.width >= 500 && largeMobile != null) {
-      return largeMobile!;
+      return SafeArea(child: largeMobile!);
     } else {
-      return mobile;
+      return SafeArea(child: mobile);
     }
   }
 }

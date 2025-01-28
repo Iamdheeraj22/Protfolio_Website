@@ -18,9 +18,9 @@ class HomeDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-
+    var width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 80.h,
+      height: 70.h,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: Row(
@@ -37,11 +37,13 @@ class HomeDesktop extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(hellotag,
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w100,
-                          )),
+                      Text(
+                        hellotag,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
                       EntranceFader(
                         offset: const Offset(0, 0),
                         delay: const Duration(seconds: 2),
@@ -70,16 +72,6 @@ class HomeDesktop extends StatelessWidget {
                         animatedTexts: desktopList,
                       ),
                     ],
-                  ),
-                  Space.y(1.5.w)!,
-                  Padding(
-                    padding: EdgeInsets.only(right: 10.w),
-                    child: Text(miniDescription,
-                        style: TextStyle(
-                          fontSize: isFontSize(context, 20),
-                          fontWeight: FontWeight.w400,
-                          color: theme.textColor.withOpacity(0.6),
-                        )),
                   ),
                   Space.y(3.w)!,
                   ColorChageButton(

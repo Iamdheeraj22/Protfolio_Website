@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Responsive(
       mobile: HomeMobile(),
+      largeMobile: HomeMobile(),
+      /* extraLargeScreen: HomeTab(),*/
       tablet: HomeTab(),
       desktop: HomeDesktop(),
     );

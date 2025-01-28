@@ -49,7 +49,7 @@ class HomeTab extends StatelessWidget {
                       offset: const Offset(0, 0),
                       delay: const Duration(seconds: 2),
                       duration: const Duration(milliseconds: 800),
-                      child: Image.asset(StaticImage.hi, height: 10.sp),
+                      child: Image.asset(StaticImage.hi, height: 22.sp),
                     ),
                   ],
                 ),

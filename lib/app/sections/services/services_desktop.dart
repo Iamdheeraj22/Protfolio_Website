@@ -13,18 +13,32 @@ class ServiceDesktopState extends State<ServiceDesktop> {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: width / 8),
-      child: Column(
+      alignment: Alignment.center,
+      child: Wrap(
+        spacing: 4.w,
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        direction: Axis.horizontal,
         children: [
-          const CustomSectionHeading(text: '\nWhat I can do?'),
-          Space.y(1.w)!,
-          CustomSectionSubHeading(text: servicesSubHeading),
-          Space.y(2.w)!,
-          OverflowBar(
-            alignment: MainAxisAlignment.center,
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const CustomSectionHeading(text: 'What I can do?'),
+              Space.y(1.w)!,
+              SizedBox(
+                width: width / 3,
+                child: Text(
+                  servicesSubHeading,
+                  style: TextStyle(fontSize: 12.sp),
+                ),
+              ),
+            ],
+          ),
+          Wrap(
+            alignment: WrapAlignment.start,
             spacing: 2.w,
-            overflowSpacing: 2.w,
-            overflowAlignment: OverflowBarAlignment.center,
             children: servicesUtils
                 .asMap()
                 .entries
