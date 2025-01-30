@@ -10,6 +10,6 @@ class BodyUtils {
     HomePage(),
     Services(),
     Contact(),
-    Footer(),
+    //Footer(),
   ];
 }
