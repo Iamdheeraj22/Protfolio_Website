@@ -51,6 +51,9 @@ class _ServiceCardState extends State<_ServiceCard> {
                 widget.service.icon,
                 height: 50,
                 width: 50,
+                colorFilter: isHover
+                    ? ColorFilter.mode(theme.textColor, BlendMode.srcIn)
+                    : null,
               ),
               Space.y(2.w)!,
               FittedBox(
@@ -84,7 +87,16 @@ class _ServiceCardState extends State<_ServiceCard> {
                     .map(
                       (e) => Row(
                         children: [
-                          const Text('🛠   '),
+                          Text(
+                            '🛠   ',
+                            style: TextStyle(
+                              color: isHover
+                                  ? whiteColor.withOpacity(0.8)
+                                  : theme.textColor,
+                              fontWeight: FontWeight.w200,
+                              fontSize: 13,
+                            ),
+                          ),
                           Text(
                             e,
                             style: TextStyle(
