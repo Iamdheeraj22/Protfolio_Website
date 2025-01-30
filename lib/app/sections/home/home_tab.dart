@@ -18,23 +18,16 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return SizedBox(
-      height: 60.h,
-      child: Stack(
+    return Container(
+      margin: EdgeInsets.only(top: 10.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Positioned(
-            right: 10.w,
-            bottom: 20.w,
-            child: const EntranceFader(
-              offset: Offset(0, 0),
-              delay: Duration(seconds: 1),
-              duration: Duration(milliseconds: 800),
-              child: ZoomAnimations(),
-            ),
-          ),
           Padding(
-            padding: EdgeInsets.only(left: 10.w, top: 10.h),
+            padding: EdgeInsets.only(left: 10.w, top: 3.w),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -83,7 +76,7 @@ class HomeTab extends StatelessWidget {
                   ),
                 ),
                 Space.y(1.5.w)!,
-                Padding(
+                /*Padding(
                   padding: EdgeInsets.only(right: 50.w),
                   child: Text(
                     miniDescription,
@@ -92,7 +85,7 @@ class HomeTab extends StatelessWidget {
                         fontWeight: FontWeight.w100,
                         color: theme.textColor.withOpacity(0.6)),
                   ),
-                ),
+                ),*/
                 Space.y(2.w)!,
                 ColorChageButton(
                   text: 'download cv',
@@ -102,6 +95,12 @@ class HomeTab extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          const EntranceFader(
+            offset: Offset(0, 0),
+            delay: Duration(seconds: 1),
+            duration: Duration(milliseconds: 800),
+            child: ZoomAnimations(),
           ),
         ],
       ),

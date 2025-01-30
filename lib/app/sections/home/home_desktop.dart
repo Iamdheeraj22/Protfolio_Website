@@ -13,12 +13,10 @@ import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/configs/configs.dart';
 
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({Key? key}) : super(key: key);
+  const HomeDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 70.h,
       child: Padding(
