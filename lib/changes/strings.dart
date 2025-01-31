@@ -19,3 +19,6 @@ String servicesSubHeading =
 
 String protfolioSubHeading =
     "Since the beginning of my journey as a designer and developer, I have created digital products for business and consumer use. This is a little bit.";
+
+String experienceSubHeading =
+    "I have worked with several companies and clients to develop and maintain high-quality mobile applications.";
