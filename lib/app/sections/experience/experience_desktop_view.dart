@@ -27,6 +27,7 @@ class _ExperienceDesktopViewState extends State<ExperienceDesktopView> {
               BoxConstraints(minWidth: width / 4, maxWidth: width / 1.3),
           child: ListView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: ExperienceUtils().experiences.length,
             itemBuilder: (ctx, index) {
               final model = ExperienceUtils().experiences[index];

@@ -30,6 +30,7 @@ class _ExperienceMobileTabViewState extends State<ExperienceMobileTabView> {
             horizontal: 3.w,
           ),
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: ExperienceUtils().experiences.length,
           itemBuilder: (ctx, index) {
             final model = ExperienceUtils().experiences[index];
