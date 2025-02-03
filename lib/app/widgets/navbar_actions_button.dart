@@ -43,7 +43,7 @@ class _NavBarActionButtonState extends State<NavBarActionButton> {
             setState(() => isHover = value);
           },
           onTap: () {
-            if (widget.index == 2) {
+            if (widget.index == 5) {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => const Projects()));
               return;

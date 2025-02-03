@@ -46,7 +46,7 @@ class _MobileDrawer extends StatelessWidget {
                             hoverColor: theme.primaryColor.withAlpha(70),
                             onPressed: () {
                               // scrollProvider.scrollMobile(e.key);
-                              if (e.key == 2) {
+                              if (e.key == 5) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
