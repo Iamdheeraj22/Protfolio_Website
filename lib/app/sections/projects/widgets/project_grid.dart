@@ -20,7 +20,7 @@ class ProjectGrid extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(8),
               gradient: const LinearGradient(colors: [
                 Colors.pinkAccent,
                 Colors.blue,
