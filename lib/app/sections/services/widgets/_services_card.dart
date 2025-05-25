@@ -72,8 +72,9 @@ class _ServiceCardState extends State<_ServiceCard> {
                 widget.service.description,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color:
-                      isHover ? whiteColor.withOpacity(0.8) : theme.textColor,
+                  color: isHover
+                      ? whiteColor.withValues(alpha: 0.8)
+                      : theme.textColor,
                   fontWeight: FontWeight.w200,
                   fontSize: 13,
                 ),
@@ -91,7 +92,7 @@ class _ServiceCardState extends State<_ServiceCard> {
                             '🛠   ',
                             style: TextStyle(
                               color: isHover
-                                  ? whiteColor.withOpacity(0.8)
+                                  ? whiteColor.withValues(alpha: 0.8)
                                   : theme.textColor,
                               fontWeight: FontWeight.w200,
                               fontSize: 13,

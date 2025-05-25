@@ -39,7 +39,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withOpacity(0.6),
+          color: theme.textColor.withValues(alpha: 0.6),
           fontSize: 18,
         ),
       ),
@@ -47,7 +47,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withOpacity(0.6),
+          color: theme.textColor.withValues(alpha: 0.6),
           fontSize: 16,
         ),
       ),
@@ -55,7 +55,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withOpacity(0.6),
+          color: theme.textColor.withValues(alpha: 0.6),
           fontSize: 13,
         ),
       ),

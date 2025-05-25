@@ -13,7 +13,7 @@ class ContactDesktop extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Colors.white.withOpacity(0.2),
+          color: Color(0x33FFFFFF),
           height: 1,
           margin: EdgeInsets.only(bottom: 10),
         ),
