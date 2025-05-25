@@ -1,6 +1,5 @@
 import 'package:mysite/app/sections/home/widgets/animation_text.dart';
 import 'package:mysite/core/animations/zoom_animation.dart';
-import 'package:mysite/core/res/responsive_size.dart';
 import 'package:sizer/sizer.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -72,7 +71,7 @@ class HomeDesktop extends StatelessWidget {
                     ],
                   ),
                   Space.y(3.w)!,
-                  ColorChageButton(
+                  ColorChangeButton(
                     text: 'download cv',
                     onTap: () {
                       html.window.open(resume, "pdf");

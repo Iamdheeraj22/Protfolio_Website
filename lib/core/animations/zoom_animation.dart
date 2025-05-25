@@ -3,7 +3,7 @@ import 'package:mysite/app/widgets/custom_outline.dart';
 import 'package:mysite/core/theme/app_theme.dart';
 
 class ZoomAnimations extends StatefulWidget {
-  const ZoomAnimations({Key? key}) : super(key: key);
+  const ZoomAnimations({super.key});
 
   @override
   State<ZoomAnimations> createState() => _ZoomAnimationsState();

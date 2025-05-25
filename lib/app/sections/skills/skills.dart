@@ -4,10 +4,7 @@ import 'package:mysite/app/sections/skills/utils/skills_utils.dart';
 import 'package:mysite/app/sections/skills/widgets/skill_child_view.dart';
 import 'package:mysite/app/sections/skills/widgets/skill_view.dart';
 import 'package:mysite/app/widgets/custom_text_heading.dart';
-import 'package:mysite/changes/strings.dart';
-import 'package:mysite/core/configs/others/space.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 
 class Skills extends StatefulWidget {
   const Skills({super.key});

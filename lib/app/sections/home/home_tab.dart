@@ -13,11 +13,11 @@ import 'package:sizer/sizer.dart';
 import 'package:universal_html/html.dart' as html;
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  const HomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
+    Theme.of(context);
     return Container(
       margin: EdgeInsets.only(top: 10.h),
       child: Row(
@@ -87,7 +87,7 @@ class HomeTab extends StatelessWidget {
                   ),
                 ),*/
                 Space.y(2.w)!,
-                ColorChageButton(
+                ColorChangeButton(
                   text: 'download cv',
                   onTap: () {
                     html.window.open(resume, "pdf");

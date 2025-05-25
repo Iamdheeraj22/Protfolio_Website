@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/sections/skills/controller/skill_controller.dart';
-import 'package:mysite/app/sections/skills/utils/skills_utils.dart';
 import 'package:mysite/core/configs/connection/bloc/connected_bloc.dart';
 import 'package:mysite/core/configs/connection/network_check.dart';
 import 'package:mysite/core/providers/drawer_provider.dart';

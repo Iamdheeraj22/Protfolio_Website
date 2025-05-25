@@ -3,7 +3,7 @@ part of '../services.dart';
 class _ServiceCard extends StatefulWidget {
   final ServicesUtils service;
 
-  const _ServiceCard({Key? key, required this.service}) : super(key: key);
+  const _ServiceCard({required this.service});
 
   @override
   _ServiceCardState createState() => _ServiceCardState();

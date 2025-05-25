@@ -1,9 +1,5 @@
-import 'dart:developer';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mysite/app/sections/experience/model/experience_model.dart';
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/res/responsive.dart';
 import 'package:sizer/sizer.dart';
@@ -16,7 +12,6 @@ class ExperienceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isMobile = Responsive.isMobile(context);
-    double width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.only(
         right: 30,

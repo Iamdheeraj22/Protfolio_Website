@@ -9,7 +9,8 @@ import 'package:sizer/sizer.dart';
 class ProjectCard extends StatefulWidget {
   final ProjectUtils project;
 
-  const ProjectCard({Key? key, required this.project}) : super(key: key);
+  const ProjectCard({super.key, required this.project});
+
   @override
   ProjectCardState createState() => ProjectCardState();
 }

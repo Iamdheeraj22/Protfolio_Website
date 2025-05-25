@@ -1,7 +1,7 @@
 part of '../main_section.dart';
 
 class _MobileDrawer extends StatelessWidget {
-  const _MobileDrawer({Key? key}) : super(key: key);
+  const _MobileDrawer();
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class _MobileDrawer extends StatelessWidget {
                         ),
                       ),
                   Space.y(5.w)!,
-                  ColorChageButton(
+                  ColorChangeButton(
                     text: 'RESUME',
                     onTap: () {
                       openURL(resume);

@@ -10,7 +10,7 @@ import 'package:sizer/sizer.dart';
 import 'widgets/project_card.dart';
 
 class PortfolioDesktop extends StatefulWidget {
-  const PortfolioDesktop({Key? key}) : super(key: key);
+  const PortfolioDesktop({super.key});
 
   @override
   State<PortfolioDesktop> createState() => _PortfolioDesktopState();

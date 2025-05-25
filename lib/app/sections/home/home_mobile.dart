@@ -65,7 +65,7 @@ class HomeMobile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ColorChageButton(
+              ColorChangeButton(
                 text: 'download cv',
                 onTap: () {
                   html.window.open(resume, "pdf");

@@ -3,7 +3,6 @@ import 'package:mysite/app/sections/projects/model/project_model.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/res/responsive.dart';
 import 'package:mysite/core/util/constants.dart';
-import 'package:sizer/sizer.dart';
 
 class ProjectInfo extends StatefulWidget {
   const ProjectInfo({super.key, required this.index});

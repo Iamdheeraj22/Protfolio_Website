@@ -5,7 +5,7 @@ import 'contact_desktop.dart';
 import 'contact_mobile.dart';
 
 class Contact extends StatelessWidget {
-  const Contact({Key? key}) : super(key: key);
+  const Contact({super.key});
 
   @override
   Widget build(BuildContext context) {

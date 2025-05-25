@@ -3,11 +3,12 @@ import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive.dart';
 
-class ColorChageButton extends StatelessWidget {
+class ColorChangeButton extends StatelessWidget {
   final String text;
   final Function() onTap;
-  const ColorChageButton({Key? key, required this.text, required this.onTap})
-      : super(key: key);
+
+  const ColorChangeButton({super.key, required this.text, required this.onTap});
+
   @override
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,10 @@ class ColorChageButton extends StatelessWidget {
 class MobileCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
-  const MobileCCButton({Key? key, required this.text, required this.onTap})
-      : super(key: key);
-  @override
 
+  const MobileCCButton({super.key, required this.text, required this.onTap});
+
+  @override
   // ignore: library_private_types_in_public_api
   _MobileCCButtonState createState() => _MobileCCButtonState();
 }
@@ -92,13 +93,14 @@ class _MobileCCButtonState extends State<MobileCCButton> {
 class TabCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
+
   const TabCCButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
-  }) : super(key: key);
-  @override
+  });
 
+  @override
   // ignore: library_private_types_in_public_api
   _TabCCButtonState createState() => _TabCCButtonState();
 }
@@ -164,13 +166,14 @@ class _TabCCButtonState extends State<TabCCButton> {
 class DesktopCCButton extends StatefulWidget {
   final String text;
   final Function() onTap;
+
   const DesktopCCButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
-  }) : super(key: key);
-  @override
+  });
 
+  @override
   // ignore: library_private_types_in_public_api
   _DesktopCCButtonState createState() => _DesktopCCButtonState();
 }
