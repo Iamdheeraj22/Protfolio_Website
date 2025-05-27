@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/widgets/color_chage_btn.dart';
 import 'package:mysite/changes/img.dart';
 import 'package:mysite/changes/links.dart';
@@ -68,6 +69,11 @@ class HomeMobile extends StatelessWidget {
               ColorChangeButton(
                 text: 'download cv',
                 onTap: () {
+                  AnalyticsTracking.logOtherEvent(
+                      name: "cv_download",
+                      section: {
+                        "deviceType": "Mobile",
+                      });
                   html.window.open(resume, "pdf");
                 },
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/projects/projects.dart';
 import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/color/colors.dart';
@@ -49,6 +50,7 @@ class _NavBarActionButtonState extends State<NavBarActionButton> {
               return;
             }
             scrollProvider.jumpTo(widget.index);
+            AnalyticsTracking.mostCheckedOutSection(section: widget.label);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

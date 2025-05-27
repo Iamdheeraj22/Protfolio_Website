@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/projects/model/project_model.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/res/responsive.dart';
@@ -80,7 +81,9 @@ class _ProjectInfoState extends State<ProjectInfo> {
                 overflow: TextOverflow.ellipsis,
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  await AnalyticsTracking.mostCheckedOutProject(
+                      section: projects[widget.index].projectName);
                   openURL(projects[widget.index].projectLink);
                 },
                 child: const Text(

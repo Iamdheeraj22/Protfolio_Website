@@ -1,3 +1,4 @@
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/home/widgets/animation_text.dart';
 import 'package:mysite/core/animations/zoom_animation.dart';
 import 'package:sizer/sizer.dart';
@@ -73,7 +74,12 @@ class HomeDesktop extends StatelessWidget {
                   Space.y(3.w)!,
                   ColorChangeButton(
                     text: 'download cv',
-                    onTap: () {
+                    onTap: () async {
+                      await AnalyticsTracking.logOtherEvent(
+                          name: "cv_download",
+                          section: {
+                            "deviceType": "Desktop",
+                          });
                       html.window.open(resume, "pdf");
                     },
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/skills/controller/skill_controller.dart';
 import 'package:mysite/app/sections/skills/utils/skills_utils.dart';
 import 'package:mysite/app/sections/skills/widgets/skill_child_view.dart';
@@ -41,8 +42,10 @@ class _SkillsState extends State<Skills> {
                 return SkillView(
                   title: e.name,
                   isSelected: index == value.selectedSkillIndex,
-                  onTap: () {
+                  onTap: () async {
                     value.selectSkill(index);
+                    await AnalyticsTracking.mostCheckedOutSkill(
+                        section: e.name);
                   },
                 );
               }).toList(),

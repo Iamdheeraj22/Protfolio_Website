@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/home/widgets/animation_text.dart';
 import 'package:mysite/app/widgets/color_chage_btn.dart';
 import 'package:mysite/changes/img.dart';
@@ -89,7 +90,12 @@ class HomeTab extends StatelessWidget {
                 Space.y(2.w)!,
                 ColorChangeButton(
                   text: 'download cv',
-                  onTap: () {
+                  onTap: () async {
+                    await AnalyticsTracking.logOtherEvent(
+                        name: "cv_download",
+                        section: {
+                          "deviceType": "Tablet",
+                        });
                     html.window.open(resume, "pdf");
                   },
                 ),
