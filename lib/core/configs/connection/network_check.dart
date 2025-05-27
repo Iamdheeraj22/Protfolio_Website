@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/sections/main/main_section.dart';
@@ -14,9 +16,11 @@ class NChecking extends StatelessWidget {
       builder: (context, state) {
         if (state is ConnectedSucessState) {
           return const MainPage();
-        } else {
-          return const MainPage();
         }
+        if (state is ConnectedFailureState) {
+          return const NoConnectionError();
+        }
+        return const NoConnectionError();
       },
     );
   }
