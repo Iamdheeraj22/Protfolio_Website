@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mysite/analytics_tracking/analytics_tracking.dart';
 import 'package:mysite/app/sections/projects/projects.dart';
 import 'package:mysite/app/utils/navbar_utils.dart';
 import 'package:mysite/app/utils/utils.dart';
@@ -23,14 +25,51 @@ import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../core/configs/connection/bloc/connected_bloc.dart';
+
 part 'widgets/_body.dart';
 
 part 'widgets/_mobile_drawer.dart';
 
 part 'widgets/_navbar_desktop.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() async {
+      final state = context.read<ConnectedBloc>().state;
+      var analytics = <String, Object>{};
+      if (Platform.isAndroid) {
+        analytics.addAll({"platform": "android"});
+      }
+      if (Platform.isIOS) {
+        analytics.addAll({"platform": "ios"});
+      }
+      if (Platform.isLinux) {
+        analytics.addAll({"platform": "linux"});
+      }
+      if (Platform.isWindows) {
+        analytics.addAll({"platform": "windows"});
+      }
+      if (Platform.isMacOS) {
+        analytics.addAll({"platform": "macos"});
+      }
+      if (state is ConnectedFailureState) {
+        analytics.addAll({"connection": "failed"});
+      }
+      analytics.addAll({"version": Platform.version});
+      await AnalyticsTracking.logOtherEvent(
+          name: "systemInfo", section: analytics);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
