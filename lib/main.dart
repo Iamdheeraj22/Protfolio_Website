@@ -8,6 +8,7 @@ import 'package:mysite/core/providers/drawer_provider.dart';
 import 'package:mysite/core/providers/scroll_provider.dart';
 import 'package:mysite/core/theme/app_theme.dart';
 import 'package:mysite/core/theme/cubit/theme_cubit.dart';
+import 'package:mysite/env/env.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,13 +17,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: FirebaseOptions(
-        apiKey: "AIzaSyBSm83Bt-SvY6B2bCZfyqbWkGPK3SP-0lE",
-        authDomain: "portfolio-83984.firebaseapp.com",
-        projectId: "portfolio-83984",
-        storageBucket: "portfolio-83984.firebasestorage.app",
-        messagingSenderId: "946917572744",
-        appId: "1:946917572744:web:39b15c5cf35231205e9f3d",
-        measurementId: "G-JCF22TNPHR"),
+      apiKey: Env.firebaseApiKey,
+      authDomain: Env.firebaseAuthDomain,
+      projectId: Env.firebaseProjectId,
+      storageBucket: Env.firebaseStorageBucket,
+      messagingSenderId: Env.firebaseMessagingSenderId,
+      appId: Env.firebaseAppId,
+      measurementId: Env.firebaseMeasurementId,
+    ),
   );
   AnalyticsTracking.init();
   runApp(const PortfolioWeb());
