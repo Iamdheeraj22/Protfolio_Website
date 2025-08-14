@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Create Environment Data File
+        run: dart run build_runner build --delete-conflicting-outputs
+
       - name: Install dependencies
         run: npm ci
 
