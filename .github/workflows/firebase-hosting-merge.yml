@@ -25,6 +25,12 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate .env file from GitHub secret
+        run: echo "${{ secrets.ENV_FILE_CONTENT }}" > .env
+
+      - name: Write .env to env folder
+        run: mkdir -p lib/env && echo "${{ secrets.ENV_FILE_CONTENT }}" > lib/env/.env
+
       - name: Create Environment Data File
         run: dart run build_runner build --delete-conflicting-outputs
 
