@@ -5,6 +5,22 @@ class ExperienceUtils {
     ExperienceModel(
       jobRole: 'Associate Mobile Developer',
       jobType: 'Full-time',
+      companyName: 'Elsner Technologies, Ahmedabad',
+      companyLogo:
+          'https://our.umbraco.com/media/upload/9989acc0-dd97-4f4d-bfd8-965d825cd339/dotsquares.jpg',
+      startDate: 'Apr 2025',
+      endDate: 'Present',
+      isCurrentJob: true,
+      jobDescription: [
+        'Implemented CI/CD pipelines to automate build processes, accelerating release delivery and improving deployment reliability.',
+        'Optimized Flutter app performance by resolving Android 14/15 compatibility issues and reducing PDF load time by 50% using background isolation techniques.',
+        'Contributed to HRMS application development, implementing multi-role management and reporting hierarchy functionalities.',
+        'Trained and mentored Flutter interns, conducting live demo sessions and practical workshops to strengthen hands-on development skills'
+      ],
+    ),
+    ExperienceModel(
+      jobRole: 'Associate Mobile Developer',
+      jobType: 'Full-time',
       companyName: 'Dotsquares Technologies, Jaipur',
       companyLogo:
           'https://our.umbraco.com/media/upload/9989acc0-dd97-4f4d-bfd8-965d825cd339/dotsquares.jpg',
