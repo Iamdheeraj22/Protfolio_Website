@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mysite/app/sections/projects/model/project_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mysite/app/sections/projects/bloc/projects_cubit.dart';
 import 'package:mysite/app/sections/projects/widgets/project_info.dart';
+import 'package:mysite/core/color/colors.dart';
 
 class ProjectGrid extends StatelessWidget {
   final int crossAxisCount;
@@ -10,34 +12,37 @@ class ProjectGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      itemCount: projects.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount, childAspectRatio: ratio),
-      itemBuilder: (context, index) {
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              gradient: const LinearGradient(colors: [
-                Colors.pinkAccent,
-                Colors.blue,
-              ]),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.pink,
-                  offset: Offset(-2, 0),
-                  // blurRadius: controller.hovers[index] ? 20 : 10,
-                ),
-                BoxShadow(
-                  color: Colors.blue,
-                  offset: Offset(2, 0),
-                  //  blurRadius: controller.hovers[index] ? 20 : 10,
-                ),
-              ]),
-          child: ProjectInfo(index: index),
+    return BlocBuilder<ProjectsCubit, ProjectsState>(
+      builder: (context, state) {
+        if (state.status == ProjectsStateStatus.loading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state.status == ProjectsStateStatus.failure) {
+          return const Center(
+            child: Text(
+              "Failed to fetch projects",
+              style: TextStyle(color: Colors.red),
+            ),
+          );
+        } else if (state.projects.isEmpty) {
+          return const Center(
+            child: Text(
+              "No projects found",
+              style: TextStyle(color: Colors.white),
+            ),
+          );
+        }
+
+        return GridView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          itemCount: state.projects.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount, childAspectRatio: ratio),
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ProjectInfo(data: state.projects[index]),
+            );
+          },
         );
       },
     );
