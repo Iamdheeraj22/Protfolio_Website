@@ -44,7 +44,7 @@ class Projects extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const Expanded(
+              Expanded(
                 child: Responsive(
                   desktop: ProjectGrid(
                     crossAxisCount: 3,
@@ -59,7 +59,56 @@ class Projects extends StatelessWidget {
                     crossAxisCount: 2,
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              BlocBuilder<ProjectsCubit, ProjectsState>(
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (state.page > 1)
+                        ElevatedButton(
+                          onPressed: () {
+                            context
+                                .read<ProjectsCubit>()
+                                .fetchProjects(page: state.page - 1);
+                          },
+                          child: const Text("Previous",
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      if (state.page > 1)
+                        const SizedBox(
+                          width: 20,
+                        ),
+                      Text(
+                        "Page ${state.page}",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      ElevatedButton(
+                        onPressed: ((state.projects.length % 20) != 0)
+                            ? null
+                            : () {
+                                context
+                                    .read<ProjectsCubit>()
+                                    .fetchProjects(page: state.page + 1);
+                              },
+                        child: const Text(
+                          "Next",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
