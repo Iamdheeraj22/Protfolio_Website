@@ -28,9 +28,7 @@ import 'package:sizer/sizer.dart';
 import '../../../core/configs/connection/bloc/connected_bloc.dart';
 
 part 'widgets/_body.dart';
-
 part 'widgets/_mobile_drawer.dart';
-
 part 'widgets/_navbar_desktop.dart';
 
 class MainPage extends StatefulWidget {
@@ -44,7 +42,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       final state = context.read<ConnectedBloc>().state;
       var analytics = <String, Object>{};
       if (Platform.isAndroid) {
