@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/sections/projects/bloc/projects_cubit.dart';
 import 'package:mysite/app/sections/projects/widgets/project_info.dart';
-import 'package:mysite/core/color/colors.dart';
 
 class ProjectGrid extends StatelessWidget {
   final int crossAxisCount;
@@ -23,10 +22,13 @@ class ProjectGrid extends StatelessWidget {
               style: TextStyle(color: Colors.red),
             ),
           );
-        } else if (state.projects.isEmpty) {
+        }
+        final filteredProjects = context.read<ProjectsCubit>().filteredProjects;
+
+        if (filteredProjects.isEmpty) {
           return const Center(
             child: Text(
-              "No projects found",
+              "No projects match your filters",
               style: TextStyle(color: Colors.white),
             ),
           );
@@ -34,13 +36,13 @@ class ProjectGrid extends StatelessWidget {
 
         return GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          itemCount: state.projects.length,
+          itemCount: filteredProjects.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount, childAspectRatio: ratio),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ProjectInfo(data: state.projects[index]),
+              child: ProjectInfo(data: filteredProjects[index]),
             );
           },
         );

@@ -42,7 +42,100 @@ class Projects extends StatelessWidget {
                     ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
+              ),
+              BlocBuilder<ProjectsCubit, ProjectsState>(
+                builder: (context, state) {
+                  return Wrap(
+                    spacing: 20,
+                    runSpacing: 20,
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      // Page Size Selector
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.05),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<int>(
+                            value: state.pageSize,
+                            dropdownColor: Colors.black,
+                            style: const TextStyle(color: Colors.white),
+                            items: [10, 20, 50, 100]
+                                .map((size) => DropdownMenuItem(
+                                      value: size,
+                                      child: Text("Page Size: $size"),
+                                    ))
+                                .toList(),
+                            onChanged: (val) {
+                              if (val != null) {
+                                context.read<ProjectsCubit>().setPageSize(val);
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                      // Owner Filter
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            hintText: "Filter by Owner",
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            prefixIcon:
+                                const Icon(Icons.person, color: Colors.grey),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.05),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide.none,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 0),
+                          ),
+                          onChanged: (val) {
+                            context.read<ProjectsCubit>().setFilters(owner: val);
+                          },
+                        ),
+                      ),
+                      // Min Watchers Filter
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            hintText: "Min Watchers",
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            prefixIcon: const Icon(Icons.visibility,
+                                color: Colors.grey),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.05),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide.none,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 0),
+                          ),
+                          onChanged: (val) {
+                            final count = int.tryParse(val) ?? 0;
+                            context
+                                .read<ProjectsCubit>()
+                                .setFilters(minWatchers: count);
+                          },
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 20,
               ),
               Expanded(
                 child: Responsive(
@@ -90,7 +183,7 @@ class Projects extends StatelessWidget {
                         width: 20,
                       ),
                       ElevatedButton(
-                        onPressed: ((state.projects.length % 20) != 0)
+                        onPressed: (state.projects.length < state.pageSize)
                             ? null
                             : () {
                                 context
