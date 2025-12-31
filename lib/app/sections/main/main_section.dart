@@ -82,6 +82,7 @@ class _MainPageState extends State<MainPage> {
         preferredSize: Size.fromHeight(120),
         child: Responsive(
           desktop: _NavbarDesktop(),
+          largeMobile: _NavBarTablet(),
           mobile: _NavBarTablet(),
           tablet: _NavBarTablet(),
         ),

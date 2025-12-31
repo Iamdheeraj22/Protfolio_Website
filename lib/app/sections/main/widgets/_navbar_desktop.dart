@@ -13,31 +13,42 @@ class _NavbarDesktopState extends State<_NavbarDesktop> {
     Size size = MediaQuery.of(context).size;
     // theme
     var theme = Theme.of(context);
+    
+    // Dynamic padding and spacing
+    double horizontalPadding = size.width < 1200 ? size.width / 40 : size.width / 20;
+
     return BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: size.width / 20, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 10),
         color: theme.navBarColor,
         child: Row(
           children: [
             const NavBarLogo(),
             const Spacer(),
-            ...NavBarUtils.names.asMap().entries.map(
-                  (e) => NavBarActionButton(
-                    label: e.value,
-                    index: e.key,
-                  ),
-                ),
+            // Using a Row but keeping it within the parent layout limits
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ...NavBarUtils.names.asMap().entries.map(
+                      (e) => NavBarActionButton(
+                        label: e.value,
+                        index: e.key,
+                      ),
+                    ),
+              ],
+            ),
             const SizedBox(width: 10),
             InkWell(
-                onTap: () {
-                  context.read<ThemeCubit>().updateTheme(!state.isDarkThemeOn);
-                },
-                child: Image.network(
-                  state.isDarkThemeOn ? IconUrls.darkIcon : IconUrls.lightIcon,
-                  height: 30,
-                  width: 30,
-                  color: state.isDarkThemeOn ? Colors.black : Colors.white,
-                )),
+              onTap: () {
+                context.read<ThemeCubit>().updateTheme(!state.isDarkThemeOn);
+              },
+              child: Image.network(
+                state.isDarkThemeOn ? IconUrls.darkIcon : IconUrls.lightIcon,
+                height: 30,
+                width: 30,
+                color: state.isDarkThemeOn ? Colors.black : Colors.white,
+              ),
+            ),
           ],
         ),
       );

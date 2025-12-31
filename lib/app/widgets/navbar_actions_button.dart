@@ -27,8 +27,13 @@ class _NavBarActionButtonState extends State<NavBarActionButton> {
   @override
   Widget build(BuildContext context) {
     final scrollProvider = Provider.of<ScrollProvider>(context);
+    final width = MediaQuery.of(context).size.width;
     // theme
     var theme = Theme.of(context);
+    
+    // Dynamic horizontal padding for the labels
+    double horizontalLabelPadding = width < 1200 ? 10 : 20;
+
     return EntranceFader(
       offset: const Offset(0, -10),
       delay: const Duration(milliseconds: 1000),
@@ -53,7 +58,8 @@ class _NavBarActionButtonState extends State<NavBarActionButton> {
             AnalyticsTracking.mostCheckedOutSection(section: widget.label);
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: EdgeInsets.symmetric(
+                horizontal: horizontalLabelPadding, vertical: 10),
             child: Text(
               widget.label,
               style: TextStyle(color: theme.textColor),
