@@ -28,44 +28,67 @@ class _SkillsState extends State<Skills> {
       return Column(
         children: [
           const CustomSectionHeading(text: 'Skills'),
-          SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 20),
           Container(
-            constraints:
-                BoxConstraints(minWidth: width / 4, maxWidth: width / 1.2),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            constraints: BoxConstraints(
+              minWidth: width / 4,
+              maxWidth: width > 800 ? 800 : width,
+            ),
             child: Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: SkillsUtils().skills.map((e) {
-                final index = SkillsUtils().skills.indexOf(e);
+              alignment: WrapAlignment.center,
+              spacing: 15,
+              runSpacing: 15,
+              children: SkillsUtils().skills.asMap().entries.map((entry) {
+                final index = entry.key;
+                final e = entry.value;
                 return SkillView(
                   title: e.name,
                   isSelected: index == value.selectedSkillIndex,
                   onTap: () async {
                     value.selectSkill(index);
-                    await AnalyticsTracking.mostCheckedOutSkill(
-                        section: e.name);
+                    await AnalyticsTracking.mostCheckedOutSkill(section: e.name);
                   },
                 );
               }).toList(),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: height * 0.025),
-            constraints:
-                BoxConstraints(minWidth: width / 4, maxWidth: width / 1.2),
-            child: Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: value.skillChild.map((e) {
-                return SkillChildView(
-                  data: e,
-                  onTap: () {},
-                );
-              }).toList(),
+          const SizedBox(height: 40),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 500),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0.0, 0.1),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                ),
+              );
+            },
+            child: Container(
+              key: ValueKey<int>(value.selectedSkillIndex),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              constraints: BoxConstraints(
+                minWidth: width / 4,
+                maxWidth: width > 1100 ? 1100 : width,
+              ),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 20,
+                runSpacing: 20,
+                children: value.skillChild.map((e) {
+                  return SkillChildView(
+                    data: e,
+                    onTap: () {},
+                  );
+                }).toList(),
+              ),
             ),
-          )
+          ),
+          SizedBox(height: height * 0.05),
         ],
       );
     });
