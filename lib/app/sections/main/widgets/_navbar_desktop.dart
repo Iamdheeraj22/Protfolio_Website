@@ -13,13 +13,15 @@ class _NavbarDesktopState extends State<_NavbarDesktop> {
     Size size = MediaQuery.of(context).size;
     // theme
     var theme = Theme.of(context);
-    
+
     // Dynamic padding and spacing
-    double horizontalPadding = size.width < 1200 ? size.width / 40 : size.width / 20;
+    double horizontalPadding =
+        size.width < 1200 ? size.width / 40 : size.width / 20;
 
     return BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 10),
+        padding:
+            EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 10),
         color: theme.navBarColor,
         child: Row(
           children: [
@@ -72,7 +74,11 @@ class _NavBarTablet extends StatelessWidget {
           IconButton(
             highlightColor: Colors.white54,
             onPressed: () {
-              drawerProvider.key.currentState!.openDrawer();
+              try {
+                drawerProvider.key.currentState!.openDrawer();
+              } catch (e) {
+                debugPrint("Error: $e");
+              }
             },
             icon: const Icon(Icons.menu),
           ),
