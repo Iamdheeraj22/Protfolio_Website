@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/analytics_tracking/analytics_tracking.dart';
@@ -45,25 +46,30 @@ class _MainPageState extends State<MainPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final state = context.read<ConnectedBloc>().state;
       var analytics = <String, Object>{};
-      if (Platform.isAndroid) {
-        analytics.addAll({"platform": "android"});
+      if (!kIsWeb) {
+        if (Platform.isAndroid) {
+          analytics.addAll({"platform": "android"});
+        }
+        if (Platform.isIOS) {
+          analytics.addAll({"platform": "ios"});
+        }
+        if (Platform.isLinux) {
+          analytics.addAll({"platform": "linux"});
+        }
+        if (Platform.isWindows) {
+          analytics.addAll({"platform": "windows"});
+        }
+        if (Platform.isMacOS) {
+          analytics.addAll({"platform": "macos"});
+        }
+        if (state is ConnectedFailureState) {
+          analytics.addAll({"connection": "failed"});
+        }
+        analytics.addAll({"version": Platform.version});
+      } else {
+        analytics.addAll({"platform": "web"});
       }
-      if (Platform.isIOS) {
-        analytics.addAll({"platform": "ios"});
-      }
-      if (Platform.isLinux) {
-        analytics.addAll({"platform": "linux"});
-      }
-      if (Platform.isWindows) {
-        analytics.addAll({"platform": "windows"});
-      }
-      if (Platform.isMacOS) {
-        analytics.addAll({"platform": "macos"});
-      }
-      if (state is ConnectedFailureState) {
-        analytics.addAll({"connection": "failed"});
-      }
-      analytics.addAll({"version": Platform.version});
+
       await AnalyticsTracking.logOtherEvent(
           name: "systemInfo", section: analytics);
     });
