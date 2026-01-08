@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mysite/app/sections/experience/model/experience_model.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/res/responsive.dart';
-import 'package:sizer/sizer.dart';
 
 class ExperienceView extends StatelessWidget {
   const ExperienceView({super.key, required this.model});
@@ -28,7 +27,7 @@ class ExperienceView extends StatelessWidget {
                 color: lightgrayColor),
             height: 50,
             width: 50,
-            margin: EdgeInsets.only(right: 2.w),
+            margin: EdgeInsets.only(right: 12),
             child: Icon(
               Icons.business,
             ),
