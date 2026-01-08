@@ -6,12 +6,9 @@ import 'package:mysite/changes/strings.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive.dart';
-import 'package:sizer/sizer.dart';
 
 part 'services_desktop.dart';
-
 part 'services_mobile.dart';
-
 part 'widgets/_services_card.dart';
 
 class Services extends StatelessWidget {

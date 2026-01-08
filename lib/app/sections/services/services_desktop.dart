@@ -15,8 +15,7 @@ class ServiceDesktopState extends State<ServiceDesktop> {
     return Container(
       alignment: Alignment.center,
       child: Wrap(
-        spacing: 4.w,
-        //crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 4,
         crossAxisAlignment: WrapCrossAlignment.center,
         direction: Axis.horizontal,
         children: [
@@ -26,19 +25,22 @@ class ServiceDesktopState extends State<ServiceDesktop> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const CustomSectionHeading(text: 'What I can do?'),
-              Space.y(1.w)!,
+              Space.y(1)!,
               SizedBox(
                 width: width / 3,
                 child: Text(
                   servicesSubHeading,
-                  style: TextStyle(fontSize: 12.sp),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
             ],
           ),
+          SizedBox(
+            width: 10,
+          ),
           Wrap(
             alignment: WrapAlignment.start,
-            spacing: 2.w,
+            spacing: 2,
             children: servicesUtils
                 .asMap()
                 .entries

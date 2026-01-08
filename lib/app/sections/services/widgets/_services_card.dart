@@ -16,7 +16,7 @@ class _ServiceCardState extends State<_ServiceCard> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 10, right: 15),
       child: InkWell(
         hoverColor: Colors.transparent,
         splashColor: Colors.transparent,
@@ -55,7 +55,7 @@ class _ServiceCardState extends State<_ServiceCard> {
                     ? ColorFilter.mode(theme.textColor, BlendMode.srcIn)
                     : null,
               ),
-              Space.y(2.w)!,
+              Space.y(2)!,
               FittedBox(
                 child: Text(
                   widget.service.name,
@@ -67,7 +67,7 @@ class _ServiceCardState extends State<_ServiceCard> {
                   ),
                 ),
               ),
-              Space.y(1.w)!,
+              Space.y(1)!,
               Text(
                 widget.service.description,
                 textAlign: TextAlign.center,
@@ -79,10 +79,10 @@ class _ServiceCardState extends State<_ServiceCard> {
                   fontSize: 13,
                 ),
               ),
-              Space.y(2.w)!,
+              Space.y(2)!,
               OverflowBar(
                 alignment: MainAxisAlignment.start,
-                spacing: 1.w,
+                spacing: 1,
                 overflowAlignment: OverflowBarAlignment.center,
                 children: widget.service.tool
                     .map(

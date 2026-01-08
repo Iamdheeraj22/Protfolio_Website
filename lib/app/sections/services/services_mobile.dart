@@ -8,16 +8,16 @@ class ServiceMobile extends StatelessWidget {
     return Column(
       children: [
         const CustomSectionHeading(text: '\nWhat I can do?'),
-        Space.y(3.w)!,
+        Space.y(3)!,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: CustomSectionSubHeading(text: servicesSubHeading),
         ),
-        Space.y(5.w)!,
+        Space.y(5)!,
         OverflowBar(
             alignment: MainAxisAlignment.center,
-            spacing: 2.w,
-            overflowSpacing: 2.w,
+            spacing: 2,
+            overflowSpacing: 2,
             overflowAlignment: OverflowBarAlignment.center,
             children: servicesUtils
                 .map(
