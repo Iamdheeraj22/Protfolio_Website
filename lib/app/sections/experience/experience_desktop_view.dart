@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mysite/app/sections/experience/model/experience_utils.dart';
 import 'package:mysite/app/sections/experience/widgets/experience_tag_description_view.dart';
 import 'package:mysite/app/sections/experience/widgets/experience_view.dart';
-import 'package:sizer/sizer.dart';
 
 class ExperienceDesktopView extends StatefulWidget {
   const ExperienceDesktopView({super.key});
@@ -20,7 +19,7 @@ class _ExperienceDesktopViewState extends State<ExperienceDesktopView> {
       children: [
         ExperienceTagDescriptionView(),
         SizedBox(
-          height: 2.5.h,
+          height: 2.5,
         ),
         Container(
           constraints:

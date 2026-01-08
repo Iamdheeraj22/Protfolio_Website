@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mysite/app/sections/experience/model/experience_utils.dart';
 import 'package:mysite/app/sections/experience/widgets/experience_tag_description_view.dart';
 import 'package:mysite/app/sections/experience/widgets/experience_view.dart';
-import 'package:sizer/sizer.dart';
 
 class ExperienceMobileTabView extends StatefulWidget {
   const ExperienceMobileTabView({super.key});
@@ -19,11 +18,11 @@ class _ExperienceMobileTabViewState extends State<ExperienceMobileTabView> {
       children: [
         ExperienceTagDescriptionView(),
         SizedBox(
-          height: 2.5.h,
+          height: 2.5,
         ),
         ListView.builder(
           padding: EdgeInsets.symmetric(
-            horizontal: 3.w,
+            horizontal: 3,
           ),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
