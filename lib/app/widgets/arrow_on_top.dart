@@ -3,7 +3,6 @@ import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 
 class ArrowOnTop extends StatefulWidget {
   const ArrowOnTop({super.key});
@@ -59,7 +58,7 @@ class ArrowOnTopState extends State<ArrowOnTop> {
                   child: Icon(
                     Icons.arrow_drop_up_outlined,
                     color: isHover ? blackColor : whiteColor,
-                    size: 5.h,
+                    size: 5,
                   ),
                 ),
               ),
