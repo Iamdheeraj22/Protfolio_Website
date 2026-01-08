@@ -68,7 +68,7 @@ class _NavBarTablet extends StatelessWidget {
     return Container(
       color: theme.navBarColor,
       padding: EdgeInsets.symmetric(
-          horizontal: Responsive.isTablet(context) ? 10.w : 10, vertical: 10),
+          horizontal: Responsive.isTablet(context) ? 10 : 10, vertical: 10),
       child: Row(
         children: [
           IconButton(

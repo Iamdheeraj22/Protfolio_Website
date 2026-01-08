@@ -14,7 +14,7 @@ class _MobileDrawer extends StatelessWidget {
           return Material(
             color: theme.scaffoldBackgroundColor,
             child: Padding(
-              padding: EdgeInsets.only(top: 2.h),
+              padding: EdgeInsets.only(top: 2),
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -69,7 +69,7 @@ class _MobileDrawer extends StatelessWidget {
                           ),
                         ),
                       ),
-                  Space.y(5.w)!,
+                  Space.y(5)!,
                   ColorChangeButton(
                     text: 'RESUME',
                     onTap: () {

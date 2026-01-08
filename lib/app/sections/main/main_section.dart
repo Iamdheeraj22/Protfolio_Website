@@ -24,7 +24,6 @@ import 'package:mysite/core/theme/cubit/theme_cubit.dart';
 import 'package:mysite/core/util/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../../core/configs/connection/bloc/connected_bloc.dart';
 
