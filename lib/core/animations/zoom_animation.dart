@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mysite/app/widgets/custom_outline.dart';
-import 'package:mysite/core/theme/app_theme.dart';
+import 'package:mysite/core/configs/configs.dart';
+import 'package:mysite/core/res/responsive.dart';
 
 class ZoomAnimations extends StatefulWidget {
   const ZoomAnimations({super.key});
@@ -15,6 +16,8 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
   late AnimationController _controller2;
   late final Animation<AlignmentGeometry> _alignAnimation;
   late Animation sizeAnimation;
+
+  bool _isHovered = false;
 
   @override
   void initState() {
@@ -56,48 +59,87 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    double width = UI.width!;
+    double baseSize = Responsive.isDesktop(context)
+        ? width / 6
+        : Responsive.isTablet(context)
+            ? width / 4.5
+            : width / 3.6;
 
     return Center(
-      child: SizedBox(
-        width: size.width / 4,
-        height: size.width / 4,
-        child: RepaintBoundary(
-          child: AlignTransition(
-            alignment: _alignAnimation,
-            child: CustomOutline(
-              strokeWidth: 5,
-              radius: size.width * 0.2,
-              padding: const EdgeInsets.all(5),
-              width: size.width * sizeAnimation.value,
-              height: size.width * sizeAnimation.value,
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    theme.secondaryColor,
-                    theme.secondaryColor.withValues(alpha: 0),
-                    theme.primaryColor.withValues(alpha: 0.1),
-                    theme.primaryColor
-                  ],
-                  stops: const [
-                    0.2,
-                    0.4,
-                    0.6,
-                    1
-                  ]),
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.black.withValues(alpha: 0.8),
-                  image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    alignment: Alignment.bottomLeft,
-                    image: NetworkImage(
-                        'https://raw.githubusercontent.com/Iamdheeraj22/Protfolio_Website/refs/heads/main/assets/imgs/IMG_0107.png'),
+      child: MouseRegion(
+        onEnter: (_) => setState(() => _isHovered = true),
+        onExit: (_) => setState(() => _isHovered = false),
+        child: AnimatedScale(
+          scale: _isHovered ? 1.05 : 1.0,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOutBack,
+          child: SizedBox(
+            width: baseSize,
+            height: baseSize,
+            child: RepaintBoundary(
+              child: Stack(
+                children: [
+                  // Glow Effect
+                  if (_isHovered)
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: theme.primaryColor.withValues(alpha: 0.5),
+                              blurRadius: 30,
+                              spreadRadius: 10,
+                            ),
+                            BoxShadow(
+                              color: theme.secondaryColor.withValues(alpha: 0.3),
+                              blurRadius: 40,
+                              spreadRadius: 5,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  AlignTransition(
+                    alignment: _alignAnimation,
+                    child: CustomOutline(
+                      strokeWidth: AppDimensions.normalize(2),
+                      radius: baseSize * 0.8,
+                      padding: const EdgeInsets.all(5),
+                      width: baseSize * (sizeAnimation.value * 5),
+                      height: baseSize * (sizeAnimation.value * 5),
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            theme.secondaryColor,
+                            theme.secondaryColor.withValues(alpha: 0),
+                            theme.primaryColor.withValues(alpha: 0.1),
+                            theme.primaryColor
+                          ],
+                          stops: const [
+                            0.2,
+                            0.4,
+                            0.6,
+                            1
+                          ]),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black.withValues(alpha: 0.8),
+                          image: const DecorationImage(
+                            fit: BoxFit.cover,
+                            alignment: Alignment.bottomLeft,
+                            image: NetworkImage(
+                                'https://raw.githubusercontent.com/Iamdheeraj22/Protfolio_Website/refs/heads/main/assets/imgs/IMG_0107.png'),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           ),

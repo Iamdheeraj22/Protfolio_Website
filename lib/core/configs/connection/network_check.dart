@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/sections/main/main_section.dart';
@@ -36,7 +34,10 @@ class NoConnectionError extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Connection failed!"),
+            Text(
+              "Connection failed!",
+              style: TextStyle(color: Colors.black),
+            ),
           ],
         ),
       ),
