@@ -1,9 +1,8 @@
 String hellotag = '''Hi there, Welcome to My Space  ''';
 
 String yourname = "I'm Dheeraj Prajapat,";
-// String hometitle2 = "A Mobile Application\nDeveloper";
 
-String animationtxt1 = " Mobile Application Developer";
+String animationtxt1 = "A Mobile Application Developer";
 
 //
 String contactHeadding = "Let’s try my service now!";
