@@ -12,7 +12,7 @@ class CustomSectionHeading extends StatelessWidget {
     return Responsive(
       desktop: Text(
         text,
-        style: const TextStyle(fontSize: 56),
+        style: const TextStyle(fontSize: 50),
       ),
       tablet: Text(
         text,
