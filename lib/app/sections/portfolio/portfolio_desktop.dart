@@ -5,7 +5,6 @@ import 'package:mysite/changes/links.dart';
 import 'package:mysite/changes/strings.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/util/constants.dart';
-import 'package:sizer/sizer.dart';
 
 import 'widgets/project_card.dart';
 
@@ -25,13 +24,13 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
       child: Column(
         children: [
           const CustomSectionHeading(text: "\nProjects"),
-          Space.y(1.w)!,
+          Space.y(1)!,
           CustomSectionSubHeading(text: protfolioSubHeading),
-          Space.y(2.w)!,
+          Space.y(2)!,
           Wrap(
             alignment: WrapAlignment.start,
             crossAxisAlignment: WrapCrossAlignment.start,
-            runSpacing: 3.w,
+            runSpacing: 3,
             children: projectUtils
                 .asMap()
                 .entries
@@ -40,7 +39,7 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
                 )
                 .toList(),
           ),
-          Space.y(3.w)!,
+          Space.y(3)!,
           OutlinedButton(
             onPressed: () => openURL(gitHub),
             child: const Padding(

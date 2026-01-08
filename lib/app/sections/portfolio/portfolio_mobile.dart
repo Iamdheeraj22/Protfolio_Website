@@ -4,7 +4,6 @@ import 'package:mysite/changes/links.dart';
 import 'package:mysite/changes/strings.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/util/constants.dart';
-import 'package:sizer/sizer.dart';
 
 class PortfolioMobileTab extends StatelessWidget {
   const PortfolioMobileTab({super.key});
@@ -14,12 +13,12 @@ class PortfolioMobileTab extends StatelessWidget {
     return Column(
       children: [
         const CustomSectionHeading(text: "\nProjects"),
-        Space.y(3.w)!,
+        Space.y(3)!,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: CustomSectionSubHeading(text: protfolioSubHeading),
         ),
-        Space.y(5.w)!,
+        Space.y(5)!,
         OutlinedButton(
           onPressed: () => openURL(gitHub),
           child: const Padding(

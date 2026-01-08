@@ -4,7 +4,6 @@ import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive.dart';
 import 'package:mysite/core/util/constants.dart';
-import 'package:sizer/sizer.dart';
 
 class ProjectCard extends StatefulWidget {
   final ProjectUtils project;
@@ -36,9 +35,9 @@ class ProjectCardState extends State<ProjectCard> {
         }
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 1.w),
-        width: Responsive.isDesktop(context) ? 30.w : 70.w,
-        height: 36.h,
+        margin: EdgeInsets.symmetric(horizontal: 1),
+        width: Responsive.isDesktop(context) ? 30 : 70,
+        height: 36,
         decoration: BoxDecoration(
           gradient: isHover ? pinkpurple : grayBack,
           borderRadius: BorderRadius.circular(10),
@@ -81,8 +80,8 @@ class ProjectCardState extends State<ProjectCard> {
               duration: const Duration(milliseconds: 400),
               opacity: isHover ? 0.1 : 1.0,
               child: Container(
-                width: Responsive.isDesktop(context) ? 30.w : 70.w,
-                height: 36.h,
+                width: Responsive.isDesktop(context) ? 30 : 70,
+                height: 36,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
