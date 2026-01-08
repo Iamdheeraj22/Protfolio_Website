@@ -6,8 +6,8 @@ class App {
   // static bool showAds = false;
 
   static init(BuildContext context) {
-    // UI.init(context);
-    // AppDimensions.init();
+    UI.init(context);
+    AppDimensions.init();
     // AppTheme.init(context);
     // UIProps.init();
     Space.init();
