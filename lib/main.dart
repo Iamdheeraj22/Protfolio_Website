@@ -12,7 +12,6 @@ import 'package:mysite/core/theme/app_theme.dart';
 import 'package:mysite/core/theme/cubit/theme_cubit.dart';
 import 'package:mysite/env/env.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,18 +51,11 @@ class PortfolioWeb extends StatelessWidget {
         ],
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
-            return Sizer(
-              builder: (context, orientation, deviceType) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  title: 'Dheeraj Prajapat | Mobile Application Developer',
-                  theme: AppTheme.themeData(state.isDarkThemeOn, context),
-                  initialRoute: "/",
-                  routes: {
-                    "/": (context) => const NChecking(),
-                  },
-                );
-              },
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Dheeraj Prajapat | Mobile Application Developer',
+              theme: AppTheme.themeData(state.isDarkThemeOn, context),
+              home: NChecking(),
             );
           },
         ),
