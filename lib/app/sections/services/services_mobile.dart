@@ -6,19 +6,22 @@ class ServiceMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const CustomSectionHeading(text: '\nWhat I can do?'),
-        Space.y(3)!,
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: CustomSectionSubHeading(text: servicesSubHeading),
+        Column(
+          children: [
+            const CustomSectionHeading(text: '\nWhat I can do?'),
+            Space.y(3)!,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: CustomSectionSubHeading(text: servicesSubHeading),
+            ),
+          ],
         ),
         Space.y(5)!,
-        OverflowBar(
-            alignment: MainAxisAlignment.center,
+        Wrap(
+            alignment: WrapAlignment.center,
             spacing: 2,
-            overflowSpacing: 2,
-            overflowAlignment: OverflowBarAlignment.center,
             children: servicesUtils
                 .map(
                   (e) => _ServiceCard(service: e),

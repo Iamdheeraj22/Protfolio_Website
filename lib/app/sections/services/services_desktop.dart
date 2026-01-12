@@ -11,7 +11,6 @@ class ServiceDesktopState extends State<ServiceDesktop> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
     return Container(
       alignment: Alignment.center,
       child: Wrap(
