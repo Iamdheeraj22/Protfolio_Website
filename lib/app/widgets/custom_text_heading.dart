@@ -12,15 +12,15 @@ class CustomSectionHeading extends StatelessWidget {
     return Responsive(
       desktop: Text(
         text,
-        style: const TextStyle(fontSize: 50),
+        style: const TextStyle(fontSize: 50, color: Colors.white),
       ),
       tablet: Text(
         text,
-        style: const TextStyle(fontSize: 36),
+        style: const TextStyle(fontSize: 36, color: Colors.white),
       ),
       mobile: Text(
         text,
-        style: const TextStyle(fontSize: 26),
+        style: const TextStyle(fontSize: 26, color: Colors.white),
       ),
     );
   }
@@ -39,7 +39,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withValues(alpha: 0.6),
+          color: theme.textColor.withValues(alpha: 0.9),
           fontSize: 18,
         ),
       ),
@@ -47,7 +47,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withValues(alpha: 0.6),
+          color: theme.textColor.withValues(alpha: 0.9),
           fontSize: 16,
         ),
       ),
@@ -55,7 +55,7 @@ class CustomSectionSubHeading extends StatelessWidget {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: theme.textColor.withValues(alpha: 0.6),
+          color: theme.textColor.withValues(alpha: 0.9),
           fontSize: 13,
         ),
       ),
