@@ -20,10 +20,10 @@ class HomeSectionResponsiveView extends StatelessWidget {
     var theme = Theme.of(context);
     return SafeArea(
       child: Container(
+        margin: EdgeInsets.only(top: 15),
         constraints: const BoxConstraints(maxWidth: 1200),
         padding: EdgeInsets.symmetric(
           horizontal: AppDimensions.normalize(20),
-          vertical: AppDimensions.normalize(10),
         ),
         child: EntranceFader(
           offset: const Offset(-20, 0),
@@ -42,6 +42,7 @@ class HomeSectionResponsiveView extends StatelessWidget {
               ),
             ),
             child: Wrap(
+              runSpacing: 15,
               alignment: WrapAlignment.spaceBetween,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
