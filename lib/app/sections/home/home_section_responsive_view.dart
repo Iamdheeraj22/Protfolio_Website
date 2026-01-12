@@ -19,93 +19,97 @@ class HomeSectionResponsiveView extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return SafeArea(
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
-          padding: EdgeInsets.symmetric(
-            horizontal: AppDimensions.normalize(20),
-            vertical: AppDimensions.normalize(10),
-          ),
-          child: EntranceFader(
-            offset: const Offset(-20, 0),
-            delay: const Duration(milliseconds: 200),
-            duration: const Duration(milliseconds: 1000),
-            child: Container(
-              padding: EdgeInsets.all(AppDimensions.normalize(20)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: theme.brightness == Brightness.dark
-                    ? Colors.white.withValues(alpha: 0.03)
-                    : Colors.black.withValues(alpha: 0.03),
-                border: Border.all(
-                  color: theme.primaryColor.withValues(alpha: 0.2),
-                  width: 1,
-                ),
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 1200),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.normalize(20),
+          vertical: AppDimensions.normalize(10),
+        ),
+        child: EntranceFader(
+          offset: const Offset(-20, 0),
+          delay: const Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 1000),
+          child: Container(
+            padding: EdgeInsets.all(AppDimensions.normalize(20)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: theme.brightness == Brightness.dark
+                  ? Colors.white.withValues(alpha: 0.03)
+                  : Colors.black.withValues(alpha: 0.03),
+              border: Border.all(
+                color: theme.primaryColor.withValues(alpha: 0.2),
+                width: 1,
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  EntranceFader(
-                    offset: const Offset(0, -10),
-                    delay: const Duration(milliseconds: 400),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          hellotag,
-                          style: AppText.h3!.copyWith(
-                            fontSize: isFontSize(context, 16),
-                            color: theme.primaryColor,
+            ),
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                FittedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      EntranceFader(
+                        offset: const Offset(0, -10),
+                        delay: const Duration(milliseconds: 400),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              hellotag,
+                              style: AppText.h3!.copyWith(
+                                fontSize: isFontSize(context, 16),
+                                color: theme.primaryColor,
+                              ),
+                            ),
+                            Image.asset(StaticImage.hi, height: 30),
+                          ],
+                        ),
+                      ),
+                      Space.y(1)!,
+                      EntranceFader(
+                        offset: const Offset(0, 10),
+                        delay: const Duration(milliseconds: 600),
+                        child: Text(
+                          yourname,
+                          style: TextStyle(
+                            fontSize: isFontSize(context, 32),
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Image.asset(StaticImage.hi, height: 30),
-                      ],
-                    ),
-                  ),
-                  Space.y(1)!,
-                  EntranceFader(
-                    offset: const Offset(0, 10),
-                    delay: const Duration(milliseconds: 600),
-                    child: Text(
-                      yourname,
-                      style: TextStyle(
-                        fontSize: isFontSize(context, 32),
-                        fontWeight: FontWeight.w700,
                       ),
-                    ),
-                  ),
-                  Space.y(1)!,
-                  EntranceFader(
-                    offset: const Offset(0, 10),
-                    delay: const Duration(milliseconds: 600),
-                    child: Text(
-                      "A Mobile Application Developer",
-                      style: TextStyle(
-                        fontSize: isFontSize(context, 32),
-                        fontWeight: FontWeight.w700,
+                      Space.y(1)!,
+                      EntranceFader(
+                        offset: const Offset(0, 10),
+                        delay: const Duration(milliseconds: 600),
+                        child: Text(
+                          "A Mobile Application Developer",
+                          style: TextStyle(
+                            fontSize: isFontSize(context, 32),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
-                    ),
+                      Space.y(3)!,
+                    ],
                   ),
-                  Space.y(3)!,
-                  EntranceFader(
-                    offset: const Offset(0, 20),
-                    delay: const Duration(milliseconds: 1000),
-                    child: ColorChangeButton(
-                      text: 'download cv',
-                      onTap: () {
-                        AnalyticsTracking.logOtherEvent(
-                            name: "cv_download",
-                            section: {
-                              "deviceType": "Responsive",
-                            });
-                        html.window.open(resume, "pdf");
-                      },
-                    ),
+                ),
+                EntranceFader(
+                  offset: const Offset(0, 20),
+                  delay: const Duration(milliseconds: 1000),
+                  child: ColorChangeButton(
+                    text: 'download cv',
+                    onTap: () {
+                      AnalyticsTracking.logOtherEvent(
+                          name: "cv_download",
+                          section: {
+                            "deviceType": "Responsive",
+                          });
+                      html.window.open(resume, "pdf");
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
