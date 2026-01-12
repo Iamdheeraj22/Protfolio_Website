@@ -5,9 +5,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/analytics_tracking/analytics_tracking.dart';
+import 'package:mysite/app/sections/contact/contact.dart';
+import 'package:mysite/app/sections/experience/experience_section.dart';
+import 'package:mysite/app/sections/home/home_section_responsive_view.dart';
 import 'package:mysite/app/sections/projects/projects.dart';
+import 'package:mysite/app/sections/services/services.dart';
+import 'package:mysite/app/sections/skills/skills.dart';
 import 'package:mysite/app/utils/navbar_utils.dart';
-import 'package:mysite/app/utils/utils.dart';
 import 'package:mysite/app/widgets/arrow_on_top.dart';
 import 'package:mysite/app/widgets/color_chage_btn.dart';
 import 'package:mysite/app/widgets/navbar_actions_button.dart';
@@ -27,7 +31,6 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../core/configs/connection/bloc/connected_bloc.dart';
 
-part 'widgets/_body.dart';
 part 'widgets/_mobile_drawer.dart';
 part 'widgets/_navbar_desktop.dart';
 
@@ -39,6 +42,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final List<Widget> _body = [
+    HomeSectionResponsiveView(),
+    Services(),
+    Skills(),
+    ExperienceSection(),
+    Contact(),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -153,7 +164,16 @@ class _MainPageState extends State<MainPage> {
                     alignment: Alignment.topCenter,
                   ),
                 ),
-              _Body(),
+              Consumer<ScrollProvider>(
+                builder: (ctx, provider, child) {
+                  return ScrollablePositionedList.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: _body.length,
+                    itemBuilder: (context, index) => _body[index],
+                    itemScrollController: provider.itemScrollController,
+                  );
+                },
+              ),
               const ArrowOnTop()
             ],
           );
