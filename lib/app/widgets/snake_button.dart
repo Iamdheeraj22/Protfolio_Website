@@ -75,7 +75,7 @@ class _SnakeButtonState extends State<SnakeButton>
                   ),
                   child: const Center(
                     child: Icon(
-                      Icons.gamepad_outlined,
+                      Icons.videogame_asset,
                       color: Colors.white,
                       size: 30,
                     ),
