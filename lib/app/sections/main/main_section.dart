@@ -180,7 +180,7 @@ class _MainPageState extends State<MainPage> {
                 bottom: 100,
                 right: 20,
                 child: Tooltip(
-                  message: "Let's play the game!",
+                  message: "Let's play!",
                   child: SnakeButton(
                     url: 'https://funky-snake-game.web.app/',
                   ),
