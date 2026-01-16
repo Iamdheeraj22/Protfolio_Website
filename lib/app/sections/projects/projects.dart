@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/sections/projects/bloc/projects_cubit.dart';
 import 'package:mysite/app/sections/projects/widgets/project_grid.dart';
+import 'package:mysite/app/widgets/github_button.dart';
 import 'package:mysite/core/res/responsive.dart';
 
 class Projects extends StatelessWidget {
@@ -98,7 +99,9 @@ class Projects extends StatelessWidget {
                                 horizontal: 10, vertical: 0),
                           ),
                           onChanged: (val) {
-                            context.read<ProjectsCubit>().setFilters(owner: val);
+                            context
+                                .read<ProjectsCubit>()
+                                .setFilters(owner: val);
                           },
                         ),
                       ),
@@ -203,6 +206,12 @@ class Projects extends StatelessWidget {
                 height: 20,
               ),
             ],
+          ),
+        ),
+        floatingActionButton: Tooltip(
+          message: "View on GitHub",
+          child: const GithubButton(
+            url: 'https://github.com/Iamdheeraj22',
           ),
         ),
       ),
