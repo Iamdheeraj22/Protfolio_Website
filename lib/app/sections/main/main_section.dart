@@ -16,6 +16,7 @@ import 'package:mysite/app/widgets/arrow_on_top.dart';
 import 'package:mysite/app/widgets/color_chage_btn.dart';
 import 'package:mysite/app/widgets/navbar_actions_button.dart';
 import 'package:mysite/app/widgets/navbar_logo.dart';
+import 'package:mysite/app/widgets/snake_button.dart';
 import 'package:mysite/changes/links.dart';
 import 'package:mysite/core/apis/links.dart';
 import 'package:mysite/core/color/colors.dart';
@@ -174,7 +175,17 @@ class _MainPageState extends State<MainPage> {
                   );
                 },
               ),
-              const ArrowOnTop()
+              const ArrowOnTop(),
+              Positioned(
+                bottom: 100,
+                right: 20,
+                child: Tooltip(
+                  message: "Let's play the game!",
+                  child: SnakeButton(
+                    url: 'https://funky-snake-game.web.app/',
+                  ),
+                ),
+              ),
             ],
           );
         },
